@@ -47,6 +47,11 @@ class Player(sprite.Sprite):
         if self.rect.left < 0:
             self.rect.left = 0
 
+    def shoot(self):
+        bullet = Bullet(self.rect.centerx, self.rect.top)
+        all_sprites.add(bullet)
+        bullets.add(bullet)
+
 
 class Mob(sprite.Sprite):
     def __init__(self):
@@ -68,10 +73,27 @@ class Mob(sprite.Sprite):
             self.speedy = random.randrange(1, 8)
 
 
+class Bullet(sprite.Sprite):
+    def __init__(self, x, y):
+        sprite.Sprite.__init__(self)
+        self.image = bullet_img
+        self.image.set_colorkey((0, 0, 0))
+        self.rect = self.image.get_rect()
+        self.rect.bottom = y
+        self.rect.centerx = x
+        self.speedy = -10
+
+    def update(self):
+        self.rect.y += self.speedy
+        if self.rect.bottom < 0:
+            self.kill()
+
+
 all_sprites = sprite.Group()
 Player = Player()
 mobs = sprite.Group()
 all_sprites.add(Player)
+bullets = sprite.Group()
 for i in range(2):
     m = Mob()
     all_sprites.add(m)
@@ -85,7 +107,7 @@ while running:
             running = False
         elif e.type == KEYDOWN:
             if e.key == K_SPACE:
-                print("shoot")
+                Player.shoot()
 
     all_sprites.update()
     window.fill((0, 0, 0))
