@@ -1,101 +1,46 @@
 print("Robolab Python Pro Course / Shooter template project =) ")
 
-
-# link for presentation => https://docs.google.com/presentation/d/1UkxfjWFpecW7BD-9ngFL7hs1fSykJnfQynp53x15_i8/edit#slide=id.g122dbdc220d_1_85
-
-
-# modules import 
-
-
-
-
-
-
-
-# colors set up
-
-
-
-
-
-
-
-
-# Window creating
-
-
-
-
- 
-# Game sprites 
-
-
-
-#player class
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- # mob class
-
-
-
-
-
-
-
-
-
-
-
-
-#bullet class
-
-
-
-
-#Game entities innit
-
-
-
-
-
-
-
-
-
-# Game Lyfecycle
-
-
-
-
-    # rendering
-
-
- 
-
-    #win lose  situation 
+import pygame
+
+#Window
+pygame.init()
+done = False
+screen = pygame.display.set_mode((1920,1200))
+pygame.display.set_caption("Game")
+clock = pygame.time.Clock()
+
+#adding text to the game
+font = pygame.font.Font(None, 50)
+
+#Surfaces
+background_surface = pygame.image.load('city_2.png')
+player_surface = pygame.image.load('ship.png')
+text_surface = font.render("Testre", False, "Green")
+
+x = 960
+
+#While loop
+while not done:
+    # For loop to quit
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            done = True
     
+    #adding the surface
+    screen.blit(background_surface,(-20,-150))
+    screen.blit(text_surface,(100,200))
+    screen.blit(player_surface,(x,1000))
 
+    #Player movements
+    for event in pygame.event.get():
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_d:
+                x = x+15
+            if event.key == pygame.K_a:
+                x = x-15
+            if event.key == pygame.K_r:
+                x= 960
 
-
- 
-    #text 
-     
-
- 
+    #updating the display
+    pygame.display.update()
+    clock.tick(144)
