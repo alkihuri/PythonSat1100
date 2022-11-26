@@ -122,17 +122,16 @@ while running:
     if hits:
         running = False
     if Player.score > 10:
-        font.init()
-        scoreFont = font.SysFont('arial', 25)
-        text = "Score: " + str(Player.score)
-        scoreOnScreen = scoreFont.render(text, True, (255, 255, 255))
-        window.blit(scoreOnScreen, (10, 10))
-        all_sprites.draw(window)
-        pygame.display.flip()
+        print("Win")
 
     all_sprites.update()
     window.fill((0, 0, 0))
     window.blit(background, background_rect)
+    font.init()
+    scoreFont = font.SysFont('arial', 25)
+    text = "Score: " + str(Player.score)
+    scoreOnScreen = scoreFont.render(text, True, (255, 0, 0))
+    window.blit(scoreOnScreen, (0, 0))
     all_sprites.draw(window)
     display.flip()
 
