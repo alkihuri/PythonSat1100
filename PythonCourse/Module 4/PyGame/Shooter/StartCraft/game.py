@@ -1,8 +1,6 @@
-from time import *
+import random
 import pygame.sprite
 from pygame import *
-import random
-from os import path
 
 width = 480
 height = 600
