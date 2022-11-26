@@ -4,7 +4,6 @@ import pygame
 
 #Window
 pygame.init()
-done = False
 screen = pygame.display.set_mode((1920,1200))
 pygame.display.set_caption("Game")
 clock = pygame.time.Clock()
@@ -18,7 +17,7 @@ player_surface = pygame.image.load('ship.png')
 text_surface = font.render("Testre", False, "Green")
 
 x = 960
-
+done = False
 #While loop
 while not done:
     # For loop to quit
