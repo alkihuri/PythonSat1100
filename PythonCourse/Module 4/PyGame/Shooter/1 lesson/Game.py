@@ -15,7 +15,7 @@ font = pygame.font.Font(None, 50)
 background_surface = pygame.image.load('city_2.png')
 player_surface = pygame.image.load('ship.png')
 text_surface = font.render("Testre", False, "Green")
-
+y = 1000
 x = 960
 done = False
 #While loop
@@ -28,7 +28,7 @@ while not done:
     #adding the surface
     screen.blit(background_surface,(-20,-150))
     screen.blit(text_surface,(100,200))
-    screen.blit(player_surface,(x,1000))
+    screen.blit(player_surface,(x,y))
 
     #Player movements
     for event in pygame.event.get():
