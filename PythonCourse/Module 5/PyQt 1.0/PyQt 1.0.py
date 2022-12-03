@@ -1,5 +1,5 @@
 from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QPushButton
 import sys
 
 
@@ -12,8 +12,8 @@ class MyWindow(QMainWindow):
         self.CreateLabel("random", 50, 75)
         self.CreateButton("button", 50, 50)
 
-    def CreateLabel(self, text, x=50, y=50):
-        self.newLabel = QtWidgets.QLabel()
+    def CreateLabel(self, text, x, y):
+        self.newLabel = QtWidgets.QLabel(self)
         self.newLabel.setText(text)
         self.newLabel.move(x, y)
 
