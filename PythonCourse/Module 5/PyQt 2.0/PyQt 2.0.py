@@ -6,7 +6,7 @@ import sys
 class Mywindow(QMainWindow):
     def __init__(self):
         super(Mywindow, self).__init__()
-        self.setGeometry(200, 200, 300, 300) # pay attettion for coordinates :) 
+        self.setGeometry(200, 200, 300, 300)  # pay attention for coordinates :)
         self.setWindowTitle("Calculator")
         # input fields
         self.firstField = self.CreateInputField("a", 100, 25)
@@ -34,6 +34,7 @@ class Mywindow(QMainWindow):
         line = QLineEdit(self)
         line.move(x, y)
         line.resize(200, 32)
+        return line
 
     def CreateLabel(self, text, x, y):
         newLabel = QtWidgets.QLabel(self)
@@ -41,13 +42,13 @@ class Mywindow(QMainWindow):
         newLabel.move(x, y)
         return newLabel
 
-    def UpdateInput(self): # isdigit doenst work for none types thats why we have errors :) 
+    def UpdateInput(self):  # isdigit doesn't work for none types that's why we have errors :)
         try:
             self.a = float(self.firstField.text())
         except:
             print("Program cant handle a data...")
             self.a = 0
-        
+
         try:
             self.b = float(self.secondField.text())
         except:
@@ -55,7 +56,7 @@ class Mywindow(QMainWindow):
             self.b = 0
 
     def UpdateOutput(self):
-        self.resultField.setText("Result: " + str(self.result)) # onlu 1 argument
+        self.resultField.setText("Result: " + str(self.result))  # only 1 argument
 
     def Plus(self):
         self.UpdateInput()
