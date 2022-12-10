@@ -55,7 +55,7 @@ class Mywindow(QMainWindow):
             self.b = 0
 
     def UpdateOutput(self):
-        self.resultField.setText("Result: " + str(self.result)) # onlu 1 argument
+        self.resultField.setText("Result: " + str(self.result)) # only 1 argument
 
     def Plus(self):
         self.UpdateInput()
