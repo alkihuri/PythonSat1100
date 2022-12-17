@@ -31,14 +31,19 @@ while not done:
     screen.blit(player_surface,(x,y))
 
     #Player movements
-    for event in pygame.event.get():
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_d:
-                x = x+15
-            if event.key == pygame.K_a:
-                x = x-15
-            if event.key == pygame.K_r:
-                x= 960
+    keys = pygame.key.get_pressed()
+
+    if keys[K_LEFT] and player_rect.left > 0:
+        player_rect.x -= 5
+
+    if keys[K_RIGHT] and player_rect.right < SCREEN_WIDTH:
+        player_rect.x += 5
+
+    if keys[K_UP] and player_rect.top > 0:
+        player_rect.y -= 5
+
+    if keys[K_DOWN] and player_rect.bottom < SCREEN_HEIGHT:
+        player_rect.y += 5
 
     #updating the display
     pygame.display.update()
