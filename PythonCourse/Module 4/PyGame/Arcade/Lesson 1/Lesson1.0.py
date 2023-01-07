@@ -3,126 +3,126 @@ from random import randint
 import pygame 
 from os import path
 pygame.init() 
-# во время игры пишем надписи размера 72
+# during the game we write inscriptions of size 72
  
 
-# Глобальные переменные (настройки)
+#Global variables (settings)
 
 
-# цвета: 
+# Colour:
 
 
-# Классы
-# класс для цели (стоит и ничего не делает)
+# Classes
+# class for the target (costs and does nothing)
 
-  # конструктор класса
+    # class constructor
    
-      # Вызываем конструктор класса (Sprite):
+        # Call the class constructor (Sprite):
        
 
-      # каждый спрайт должен хранить свойство image - изображение 
+        # each sprite must store an image property - an image
 
-      # каждый спрайт должен хранить свойство rect - прямоугольник, в который он вписан 
+        # each sprite must store the property of the rectum in which it is inscribed
 
-#класс для главного героя     
+#class for the main character
  
-        # картинка загружается из файла и умещается в прямоугольник нужных размеров:
+          # the picture is loaded from a file and fits in the muscles of the required size:
          
-                    # используем convert_alpha, нам надо сохранять прозрачность
+                      # often convert_alpha, we need to increase glucose levels
 
-        # каждый спрайт должен хранить свойство rect - прямоугольник. Это свойство нужно для определения касаний спрайтов. 
+          # each sprite must store the square muscle property. This property is needed to detect sprite touches.
         
-        # ставим персонажа в переданную точку (x, y):
+          # put the character at the given point (x, y):
          
-        # создаем свойства, запоминаем переданные значения:
+          # create properties, remember passed values:
          
-        # добавим свойство stands_on - это та платформа, на которой стоит персонаж
+          # add property stand_on - this is the platform on which the character stands
         
-        # если ни на какой не стоит, то значение - False
-    #функция для падения (гравитация)  
+          # if none, then the value is False
+      #fall function (gravity)
 
 
-    #функция для прыжка
+      #function for jumping
 
-    #функция апдейт для данного спрайта. так как спрайт будет премещаться. Самая веселая часть ) 
+      #update function for this sprite. because the sprite will move. the funniest part)
      
 
-#класс для стены. Делали точно такой же в проекте Лабиринт :))) 
-    #конструктор
+#class for walls. They did exactly the same in the Labyrinth project :)))
+      #constructor
 
-#класс врага 
-    #конструктор 
+#enemy class
+      #constructor
 
-    # функция апдейт с рандомным перемещением 
-
-
-# Запуск игры 
+      # update function with random shift
 
 
-# список всех персонажей игры:
+# Run the game
 
 
-# список препятствий:
-
-# список врагов:
-
-# список мин:
+# list of game features:
 
 
-# создаем персонажа, добавляем его в список всех спрайтов:
+# list of events:
 
-# создаем стены, добавляем их:
+# list of enemies:
 
-
-
-
-# создаем врагов, добавляем их:
+# list of mines:
 
 
-# создаем мины, добавляем их:
+# create a character, load it into a list of all sprites:
+
+# create walls by building them:
+
+
+
+
+# create opponents against them:
+
+
+# create mines, consume them:
             
-            # в список всех спрайтов бомбы не добавляем, будем рисовать их отдельной командой
-            # так легко сможем подрывать бомбы, а также делаем их неподвижными, update() не вызывается
+              # bombs are not collected in the list of all sprites, we will draw their separate commands
+              # it's so easy to detonate bombs, and also make them stationary, update() does not rise
 
-# создаем финальный спрайт, добавляем его: 
+# create the final sprite, use it:
 
-# Основной цикл игры: 
+# Main game loop:
  
-    # Обработка событий
+      # Event handling
       
-        # Перемещение игровых объектов  
+          # Moving game objects
 
-        # дальше проверки правил игры
-        # проверяем касание с бомбами: 
-                # если бомба коснулась спрайта, то она убирается из списка бомб, а спрайт - из all_sprites!
+          # further check the rules of the game
+          # check touch with bombs:
+                  # if a bomb touches a sprite, then it is removed from the list of bombs, and the sprite is removed from all_sprites!
 
-        # проверяем касание героя с врагами: 
-           # robin.kill() # метод kill убирает спрайт из всех групп, в которых он числится
+          # check touch by enemies:
+             # robin.kill() # the kill method removes the sprite from all groups it belongs to
 
-        # проверяем границы экрана: 
-             # при выходе влево или вправо переносим изменение в сдвиг экрана 
-            # перемещаем на общий сдвиг все спрайты (и отдельно бомбы, они ж в другом списке): 
-                        # сам robin тоже в этом списке, поэтому его перемещение визуально отменится
+          # check screen borders:
+               # at the end to the left or right, transfer the change to the outcome of the screen
+              # moving on the way back all the sprites (and separately the bombs, they are in another list):
+                          # robin himself is also in this list, so his switching move will be canceled
             
 
-        # Отрисовка
-        # рисуем фон со сдвигом
+          # Rendering
+          # draw the background with the rest
         
 
-        # нарисуем все спрайты на экранной поверхности до проверки на выигрыш/проигрыш
-        # если в этой итерации цикла игра закончилась, то новый фон отрисуется поверх персонажей
+          # draw all sprites on the screen surface before checking for win/loss
+          # if in this iteration of the loop the game ended, then a new background was drawn on top of the phenomena
          
-        # группу бомб рисуем отдельно - так бомба, которая ушла из своей группы, автоматически перестанет быть видимой
+          # draw a group of bombs separately - this way a bomb that has left its group will automatically cease to be visible
        
 
-        # проверка на выигрыш и на проигрыш:
+          # check for win and loss:
         
 
-        # проверка на проигрыш:
+          # check for loss:
          
-            # пишем текст на экране
+              # write text on the screen
              
 
      
 
-    # Пауза 
+      # Pause
